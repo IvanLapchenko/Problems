@@ -1,26 +1,44 @@
+using System;
+
 class Program
 {
     public static void Main(string[] args)
     {
-        SquareSum();
+        List<int> listOfNunbersToSquare = GetListOfNunbersToSquare();
+        int squaredSum = SquaredSum(listOfNunbersToSquare);
+        outputListOfSquaredNumbers(squaredSum);
     }
 
-    public static void SquareSum()
+    public static List<int> GetListOfNunbersToSquare()
     {
-        string input_data;
-        int out_data = 0;
+        List<int> listOfNunbersToSquare = new();
+        string NumberToSquare;
 
         while (true)
         {
-            input_data = Console.ReadLine();
+            NumberToSquare = Console.ReadLine();
 
-            if (input_data == "")
+            if (NumberToSquare == "")
                 break;
-            else
-                a = Convert.ToInt32(input_data);
-                out_data += //math.pow(a);
-        };
-        System.Console.WriteLine(out_data);
-    }
 
+            int NumberToSquare1 = Convert.ToInt32(NumberToSquare);
+            listOfNunbersToSquare.Add(NumberToSquare1);
+        };
+        return listOfNunbersToSquare;
+    }
+    public static int SquaredSum(List<int> listOfNunbersToSquare)
+    {
+        int squaredSum = 0;
+
+        foreach (int number in listOfNunbersToSquare)
+        {
+            squaredSum += number * number;
+        }
+
+        return squaredSum;
+    }
+    public static void outputListOfSquaredNumbers(int squaredSum)
+    {
+        Console.WriteLine(squaredSum);
+    }
 }
