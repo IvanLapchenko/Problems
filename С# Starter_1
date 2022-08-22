@@ -2,10 +2,10 @@ class Program
 {
     public static void Main(string[] args)
     {
-        SqareSum();
+        SquareSum();
     }
 
-    public static void SqareSum()
+    public static void SquareSum()
     {
         string input_data;
         int out_data = 0;
@@ -17,7 +17,8 @@ class Program
             if (input_data == "")
                 break;
             else
-                out_data += Convert.ToInt32(input_data) * Convert.ToInt32(input_data);
+                a = Convert.ToInt32(input_data);
+                out_data += //math.pow(a);
         };
         System.Console.WriteLine(out_data);
     }
