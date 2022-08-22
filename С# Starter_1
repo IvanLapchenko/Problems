@@ -1,0 +1,25 @@
+class Program
+{
+    public static void Main(string[] args)
+    {
+        SqareSum();
+    }
+
+    public static void SqareSum()
+    {
+        string input_data;
+        int out_data = 0;
+
+        while (true)
+        {
+            input_data = Console.ReadLine();
+
+            if (input_data == "")
+                break;
+            else
+                out_data += Convert.ToInt32(input_data) * Convert.ToInt32(input_data);
+        };
+        System.Console.WriteLine(out_data);
+    }
+
+}
