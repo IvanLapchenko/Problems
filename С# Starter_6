@@ -1,0 +1,22 @@
+using System;
+
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+         Greeing("Johnny");
+    }
+
+    public static void Greeing(string nameOfUser)
+    {
+        if (nameOfUser == "Johnny")
+        {
+            Console.WriteLine("You are special!");
+        }
+        else
+        {
+            Console.WriteLine("Hello!");
+        }
+    }
+}
