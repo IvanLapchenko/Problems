@@ -1,0 +1,35 @@
+using System;
+
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+         MinMax(new int[] { 1, 3, 5, 7, 9 });
+    }
+
+    public static void MinMax(int[] arrayToFindMinMax)
+    {
+        int[] minAndMaxValues = new int[2];
+        int max = arrayToFindMinMax[0];
+        int min = arrayToFindMinMax[0];
+
+        for (int i = 0; i < arrayToFindMinMax.Length; i++)
+        {
+            if (arrayToFindMinMax[i] > max)
+            {
+                max = arrayToFindMinMax[i];
+            }
+            else if (arrayToFindMinMax[i] < min)
+            {
+                min = arrayToFindMinMax[i];
+            }
+        }
+        minAndMaxValues[1] = max;
+        minAndMaxValues[0] = min;
+        foreach (int number in minAndMaxValues)
+        {
+            Console.Write(number + " ");
+        }
+    }
+}
