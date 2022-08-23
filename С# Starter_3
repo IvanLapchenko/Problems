@@ -1,0 +1,26 @@
+using System;
+
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        vowelsCount("aaaxbbbbyyhwawiwjjjwwm");
+    }
+
+    public static void vowelsCount(string stringToCheckForVowels)
+    {
+        string vowels = "aeiou";
+        int vowelsCounter = 0;
+
+        foreach (char letter in stringToCheckForVowels)
+        {
+            if (vowels.Contains(letter))
+            {
+                vowelsCounter++;
+            }
+        }
+
+        Console.WriteLine($"Vowels here: {vowelsCounter}");
+    }
+}
