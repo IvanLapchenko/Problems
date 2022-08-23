@@ -1,0 +1,27 @@
+using System;
+
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        PrinterError("aaaxbbbbyyhwawiwjjjwwm");
+    }
+
+    public static void PrinterError(string stringToCheck)
+    {
+        string errorLetters = "nopqrstuvwxyz";
+        int entryStringLenght = stringToCheck.Count();
+        int errorCounter = 0;
+
+        foreach (char letter in stringToCheck)
+        {
+            if (errorLetters.Contains(letter))
+            {
+                errorCounter++;
+            }
+        }
+        
+        Console.WriteLine($"Помилок: {errorCounter}/{entryStringLenght}");
+    }
+}
