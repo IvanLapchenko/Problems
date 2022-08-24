@@ -6,7 +6,7 @@ class Program
     {
         List<int> listOfNunbersToSquare = GetListOfNunbersToSquare();
         int squaredSum = SquaredSum(listOfNunbersToSquare);
-        outputListOfSquaredNumbers(squaredSum);
+        OutputListOfSquaredNumbers(squaredSum);
     }
 
     public static List<int> GetListOfNunbersToSquare()
@@ -16,12 +16,12 @@ class Program
 
         while (true)
         {
-            NumberToSquare = Console.ReadLine();
+            numberToSquare = Console.ReadLine();
 
             if (NumberToSquare == "")
                 break;
 
-            int NumberToSquare1 = Convert.ToInt32(NumberToSquare);
+            int numberToSquare1 = Convert.ToInt32(NumberToSquare);
             listOfNunbersToSquare.Add(NumberToSquare1);
         };
         return listOfNunbersToSquare;
@@ -37,7 +37,7 @@ class Program
 
         return squaredSum;
     }
-    public static void outputListOfSquaredNumbers(int squaredSum)
+    public static void OutputListOfSquaredNumbers(int squaredSum)
     {
         Console.WriteLine(squaredSum);
     }
