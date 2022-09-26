@@ -1,0 +1,53 @@
+public class Mixing
+{
+    public static string Mix(string s1, string s2)
+    {
+        int countForFirstString;
+        int countForSecondString;
+        List<string> unorderedMixedStrings = new();
+        string mixedSortedString = "";
+
+        var listOfOnlyLetters = from char s in s1.Union(s2)
+                            where char.IsLower(s)
+                            where char.IsLetter(s)
+                            select s;
+
+        foreach (char l in listOfOnlyLetters)
+        {
+            string adding = "";
+            countForFirstString = s1.Count(s => s == l);
+            countForSecondString = s2.Count(s => s == l);
+
+            if (countForFirstString > 1 || countForSecondString > 1)
+            {
+                if (countForFirstString > countForSecondString)
+                    adding = $"1:{String.Concat(Enumerable.Repeat(l, countForFirstString))}/";
+
+                if (countForFirstString < countForSecondString)
+                    adding = $"2:{String.Concat(Enumerable.Repeat(l, countForSecondString))}/";
+
+                if (countForFirstString == countForSecondString)
+                    adding = $"3:{String.Concat(Enumerable.Repeat(l, countForFirstString))}/";
+
+                unorderedMixedStrings.Add(adding);
+            }
+        }
+        if (unorderedMixedStrings.Count == 0) { return ""; };
+        var OrderedMexedStrings = from s in unorderedMixedStrings
+                         orderby s.Length descending,
+                         s ascending,
+                         s[2] ascending
+                         select s;
+
+        
+        var replacedNames = OrderedMexedStrings.Select(x => x.Replace('3', '='));
+
+        foreach (string strr in replacedNames)
+        {
+            foreach (char ch in strr)
+                mixedSortedString += ch;
+        }
+        return mixedSortedString[..^1];
+        
+    }
+}
