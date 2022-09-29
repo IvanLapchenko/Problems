@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+
+public class Program
+{
+
+    public static int man = 0;
+    public static Man objMan = new();
+    public static string strMan = "Man";
+    public static void Main()
+    {
+        
+        var tupleList = new List<Tuple<object, Type>>
+        { 
+              Tuple.Create((object)man, man.GetType()),
+              Tuple.Create((object)objMan, objMan.GetType()),
+              Tuple.Create((object)strMan, strMan.GetType())
+
+        };
+        Reflection.GetTypes(tupleList);  
+    }
+}
+
+public static class Reflection
+{
+    public static void GetTypes(List<Tuple<object, Type>> objectTypes)
+    {
+        for (int i = 0; i < objectTypes.Count; i++)
+        {
+            var type = objectTypes[i];
+            Console.WriteLine(type);
+        }
+    }
+}
+
+public class Man
+{
+}
