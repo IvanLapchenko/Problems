@@ -1,0 +1,118 @@
+using System.Diagnostics.Metrics;
+using System.Xml.Linq;
+using NUnit.Framework;
+
+sealed class Adam : Male
+{
+    protected static Adam instance;
+    public string Name { get; private set; }
+
+    private Adam(string name)
+        : base()
+    {
+        Name = name;
+    }
+
+    public static Adam GetInstance()
+    {
+        if (instance == null)
+            instance = new Adam("Adam");
+        return instance;
+    }
+}
+sealed class Eve : Female
+{
+    protected static Eve instance;
+    public string Name { get; private set; }
+
+    protected Eve(string name)
+        : base()
+    {
+        Name = name;
+    }
+
+    public static Eve GetInstance(Adam adam)
+    {
+        if (adam == null) 
+        {
+            throw new ArgumentNullException();
+        }
+
+        if (instance == null) 
+        { 
+            instance = new Eve("Eve"); 
+        }
+
+        return instance;
+    }
+}
+public class Male : Human
+{
+    protected Male()
+    { }
+
+    public Male(string name, Female female, Male male)
+        : base(name, female, male)
+    {
+    }
+
+}
+public class Female : Human
+{
+    protected Female()
+    { }
+    public Female(string name, Female female, Male male)
+        : base(name, female, male)
+    {
+    }
+}
+public abstract class Human
+{
+    public Human() {}
+
+    protected string name;
+    protected Female mother;    
+    protected Male father;
+
+    public string Name
+    {
+        get { return name; }    
+        set { name = value; }
+    }
+
+    public Female Mother
+    {
+        get { return mother; }
+        set 
+        {
+            mother = value;
+            if (mother == null)
+            {
+                throw new ArgumentNullException();
+            }
+            
+        }
+    }
+
+    public Male Father
+    {
+        get { return father; }
+        set
+        {
+            father = value;
+            if (father == null)
+            {
+                throw new ArgumentNullException();
+            }
+            
+        }
+    }
+
+    public Human(string name, Female mother, Male father)
+    {
+        Name = name;
+        Mother = mother;
+        Father = father;
+    }
+}
+
